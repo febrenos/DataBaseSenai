@@ -9,6 +9,11 @@ CREATE TABLE Tipo_Usuario (
 	Titulo VARCHAR (100)
 );
 
+INSERT Tipo_Usuario (Titulo)
+VALUES ('ADM'), ('Comum')
+
+
+
 CREATE TABLE Usuarios (
 	Id_Usuario INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR (200),
