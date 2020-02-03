@@ -20,7 +20,7 @@ CREATE TABLE Pessoas(
 	IdPessoas		INT PRIMARY KEY IDENTITY,
 	Pessoa			VARCHAR(200) NOT NULL,
 	IdEmail			INT FOREIGN KEY REFERENCES(IdEmail),
-	IdCNHs			INT FOREIGN KEY REFERENCES(IdCNHs)
+	IdCNH			INT FOREIGN KEY REFERENCES(IdCNHs)
 );
 
 SELECT * FROM Pessoas;
@@ -28,8 +28,16 @@ SELECT * FROM CNHs;
 SELECT * FROM Emails;
 
 INSERT INTO Emails(Email) 
+VALUES	('KátiadaSilva@gmail.com'), 
+		('AlexaSilva@gmail.com'), 
+		('TalesMileto@hotmail.com'), 
+		('JefferssonDanoninho@gmail.com'), 
+		('MatheusNascimento@yahoo.com.br'), 
+		('RogerNatan@gmail.com');
+
+INSERT INTO Pessoas(Pessoa,IdEmail,IdCNH) 
 VALUES	('Kátia da Silva'), 
-		('Alexa Texas'), 
+		('Alexa Silva'), 
 		('Tales Mileto'), 
 		('Jeffersson Danoninho'), 
 		('Matheus Nascimento'), 
@@ -37,12 +45,12 @@ VALUES	('Kátia da Silva'),
 
 
 INSERT INTO CNHs(CNH) 
-VALUES	('Kátia da Silva'), 
-		('Alexa Texas'), 
-		('Tales Mileto'), 
-		('Jeffersson Danoninho'), 
-		('Matheus Nascimento'), 
-		('Roger Natan');
+VALUES	('111-111-111-11'), 
+		('111-111-111-12'), 
+		('111-111-111-13'), 
+		('111-111-111-14'), 
+		('111-111-111-15'), 
+		('111-111-111-16');
 
 
 

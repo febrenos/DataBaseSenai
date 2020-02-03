@@ -27,7 +27,7 @@ CREATE TABLE Artistas (
 
 CREATE TABLE Estilos (
 	Id_Estilo INT PRIMARY KEY IDENTITY,
-	Nome_Estilo VARCHAR (100)
+	Nome_Estilo VARCHAR (200)
 );
 
 CREATE TABLE Albuns (
@@ -97,9 +97,11 @@ SELECT Nome_Album, Data_Lancamento FROM albuns;
 
 
 -- Operadores < > =
-SELECT * FROM Albuns WHERE Id_Album = 1;
+SELECT * FROM Albuns 
+WHERE Id_Album = 1;
 
-SELECT * FROM Albuns WHERE Id_Albuns > 1;
+SELECT * FROM Albuns 
+WHERE Id_Albuns > 1;
 
 --OR (do portugues é OU) --LIKE(como)
 SELECT Nome, QtdMinutos FROM Albuns
@@ -142,13 +144,26 @@ ORDER BY DataLancameto ASC; --CRESCENTE
 
 SELECT COUNT(Id_Album) FROM Albuns;
 
---SELECIONAR OS ALBUNS  DO MSM ARTISTA
+--SELECIONAR OS ALBUNS DO MSM ARTISTA
 SELECT * FROM Albuns
 WHERE Id_Artista = 4;
+
+--OUTRA FORMA INNER JOIN(juncao de 2 ou mais tabelas)
+SELECT Artistas.Nome,Albuns.Nome FROM Artistas 
+INNER JOIN Albuns ON Artistas.Id_Artista = Albuns.Id_Artista
+WHERE Albuns.Id_Artista = 2;
+
 
 --SELECIONAR OS ALBUNS LANÇACOS NA MESMA DATA
 SELECT * FROM Albuns
 WHERE Data_Lancamento = '2020-01-24';
+
+--OUTRA FORMA INNER JOIN
+SELECT * FROM Artistas 
+INNER JOIN Albuns ON Artistas.Id_Artista = Albuns.Id_Album
+WHERE DAta_Lancamento = '2020-01-24';
+
+
 
 --SELECIONAR OS ARTISTAS DO MESMO ESTIO MUSICAL
 SELECT * FROM Albuns
@@ -157,6 +172,27 @@ WHERE Id_Estilo = 4;
 --SELECIONAR ALBUNS E ARTISTAS E ORDENAR A DATA DE LANÇAMENTO DA MAIS RECENTES PARA O MAIS ANTIGO
 SELECT Id_Album, Data_Lancamento FROM Albuns
 ORDER BY Data_Lancamento DESC;
+
+--SELECIONR ALBUNS E ARTISTAS E ORDENAR
+--POR DATA DE LANCAMENNTO
+--(MAIS ANTIGO PARA O MAIS RECENTE)
+
+SELECT * FROM Albuns  ORDER BY Data_Lancamento ASC;
+SELECT * FROM Artistas;
+
+SELECT Artistas.Nome_Artista, Albuns.Nome_Album, Data_Lancamento --atributos com apelido
+FROM Artistas
+INNER JOIN Albuns ON Artistas.Id_Artista = Albuns.Id_Artista
+ORDER BY Data_Lancamento ASC;
+
+--DESAFIO 3 TABELAS
+SELECT Artistas.Nome_Artista, Estilos.Nome_Estilo --atributos com apelido
+FROM Artistas
+INNER JOIN Albuns ON Artistas.Id_Artista = Albuns.Id_Artista -- JUNTA Albuns com Artistas
+ORDER BY Estilos ON Albuns.Id_Estilo = Estilos.Id_Estilo
+WHERE Estilos.Id_Estilo = 2;
+
+
 
 
 
