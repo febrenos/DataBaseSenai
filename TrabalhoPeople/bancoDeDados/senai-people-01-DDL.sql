@@ -1,0 +1,13 @@
+--DDL
+CREATE DATABASE T_Peoples;
+GO
+
+USE T_Peoples;
+GO
+
+CREATE TABLE Funcionario(
+	IdFuncionario INT PRIMARY KEY IDENTITY,
+	Nome		VARCHAR(255),
+	Sobrenome	VARCHAR(255)
+);
+GO
